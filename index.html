@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CKMW8J8Q8D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CKMW8J8Q8D');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Tier 3D – Product Videos & Images</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-family: 'Inter', sans-serif; }
+    body { background: #000; color: #fff; overflow-x: hidden; }
+
+    #projects, #interactive-model, #services, #about, #process, #faq, #cta { scroll-margin-top: 96px; }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-60px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes lineGrow {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+    .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+    .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+    .animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+    .animate-on-scroll.delay-5 { transition-delay: 0.5s; }
+
+    /* Hero specific */
+    .hero-line {
+      width: 0;
+      animation: lineGrow 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+    }
+
+    .hero-title {
+      animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+    .hero-sub {
+      animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+    }
+    .hero-text {
+      animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+    }
+    .hero-cta {
+      animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+    }
+
+    /* Project card hover */
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .project-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 40%, transparent 100%);
+      transition: all 0.5s ease;
+    }
+    .project-card:hover::after {
+      background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.1) 100%);
+    }
+    .project-card img {
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+    .project-card .card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: 2rem;
+      transform: translateY(10px);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .project-card:hover .card-content {
+      transform: translateY(0);
+    }
+    .project-card .card-arrow {
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.4s ease;
+    }
+    .project-card:hover .card-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+
+
+    /* Premium media sections */
+    .hero-bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.18;
+      filter: grayscale(100%) contrast(1.15);
+    }
+    .hero-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.82) 65%, #000 100%);
+    }
+    .media-frame {
+      position: relative;
+      overflow: hidden;
+      background: #0a0a0a;
+      border: 1px solid #262626;
+    }
+    .media-frame video,
+    .media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .media-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #262626;
+      background: #0a0a0a;
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.45s ease;
+    }
+    .media-card:hover {
+      transform: translateY(-6px);
+      border-color: #ffffff;
+    }
+    .media-card video,
+    .media-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    }
+    .media-card:hover video,
+    .media-card:hover img {
+      transform: scale(1.04);
+    }
+    .media-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.18) 48%, transparent 100%);
+    }
+    .media-meta {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      padding: 1.25rem;
+    }
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid #333;
+      padding: 0.45rem 0.75rem;
+      color: #a3a3a3;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .model-view-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #262626;
+      background: radial-gradient(circle at center, #171717 0%, #050505 70%);
+    }
+    .model-view-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(255,255,255,0.06), transparent 40%, rgba(255,255,255,0.03));
+      z-index: 1;
+    }
+    model-viewer {
+      width: 100%;
+      height: 620px;
+      display: block;
+      --poster-color: transparent;
+    }
+    @media (max-width: 768px) {
+      model-viewer { height: 460px; }
+    }
+    .gallery-image {
+      min-height: 280px;
+    }
+    .capability-card {
+      border: 1px solid #262626;
+      background: linear-gradient(180deg, rgba(23,23,23,0.75), rgba(10,10,10,0.75));
+      transition: transform 0.4s ease, border-color 0.4s ease;
+    }
+    .capability-card:hover {
+      transform: translateY(-5px);
+      border-color: #fff;
+    }
+
+    /* Process step */
+    .process-step {
+      position: relative;
+    }
+    .process-step::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 56px;
+      bottom: -32px;
+      width: 1px;
+      background: #222;
+    }
+    .process-step:last-child::before {
+      display: none;
+    }
+
+    /* Service card */
+    .service-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #333;
+      transition: all 0.5s ease;
+    }
+    .service-card:hover::before {
+      background: #fff;
+      height: 2px;
+    }
+    .service-card .service-number {
+      transition: color 0.4s ease;
+    }
+    .service-card:hover .service-number {
+      color: #fff;
+    }
+
+    /* Testimonial */
+    .testimonial-card {
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 24px;
+      font-size: 120px;
+      font-weight: 900;
+      line-height: 1;
+      color: #111;
+      pointer-events: none;
+    }
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  border-color: #fff;
+  transition: all 0.4s ease;
+}
+    /* Nav */
+    .nav-blur {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* Grain overlay */
+    .grain-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+    }
+
+    /* Highlight list */
+    .highlight-item {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .highlight-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+
+
+    /* Mobile and video performance */
+    .lazy-video { cursor: pointer; background: #050505; }
+
+    @media (max-width: 768px) {
+      .hero-bg-video { display: none; }
+      #hero {
+        background-image:
+          linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.96)),
+          url("Images/posters/energyposter.png");
+        background-size: cover;
+        background-position: center;
+      }
+      .media-card video { object-fit: cover; }
+      .media-meta {
+        top: 0;
+        bottom: auto;
+        padding: 1rem;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.78), rgba(0,0,0,0.28), transparent);
+      }
+      .media-card::after {
+        background: linear-gradient(to bottom, rgba(0,0,0,0.55), transparent 45%, rgba(0,0,0,0.35));
+      }
+    }
+
+    .model-load-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      text-align: center;
+      background: radial-gradient(circle at center, rgba(23,23,23,0.92), rgba(0,0,0,0.96));
+    }
+    .model-load-overlay.hidden { display: none; }
+
+
+
+    /* Video playback fix: keep controls clickable and do not let text overlays block play */
+    .video-card::after { display: none; }
+    .video-card .media-meta {
+      top: 0;
+      bottom: auto;
+      pointer-events: none;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.78), rgba(0,0,0,0.25), transparent);
+    }
+    .video-card video { position: relative; z-index: 1; }
+
+    /* FAQ */
+    .faq-item {
+      border: 1px solid #262626;
+      background: linear-gradient(180deg, rgba(23,23,23,0.75), rgba(10,10,10,0.75));
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+    .faq-item:hover,
+    .faq-item[open] {
+      border-color: #ffffff;
+    }
+    .faq-item summary {
+      list-style: none;
+    }
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-plus {
+      transition: transform 0.3s ease;
+    }
+    .faq-item[open] .faq-plus {
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+<body>
+  <!-- Grain Overlay -->
+  <div class="grain-overlay"></div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#hero" class="text-white font-bold text-lg tracking-tight z-50">
+          TOP<span class="font-light">TIER</span>3D
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#projects" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300 tracking-wide">Portfolio</a>
+          <a href="#interactive-model" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300 tracking-wide">3D Model</a>
+          <a href="#services" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300 tracking-wide">Services</a>
+          <a href="#about" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300 tracking-wide">About</a>
+          <a href="#process" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300 tracking-wide">Process</a>
+          <a href="#faq" class="text-sm text-neutral-400 hover:text-white transition-colors duration-300 tracking-wide">FAQ</a>
+         <a href="#inquiry-form" class="ml-4 inline-flex items-center gap-2 bg-white text-black px-5 py-2.5 text-sm font-medium hover:bg-neutral-200 transition-all duration-300 rounded-none">
+  Start a Project
+  <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+</a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button id="menuToggle" class="md:hidden text-white z-50 relative w-10 h-10 flex items-center justify-center">
+          <i data-lucide="menu" class="w-6 h-6 menu-icon"></i>
+          <i data-lucide="x" class="w-6 h-6 close-icon hidden"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-black z-40 flex flex-col items-center justify-center gap-8">
+    <a href="#projects" class="text-3xl font-light text-white mobile-link">Portfolio</a>
+    <a href="#interactive-model" class="text-3xl font-light text-white mobile-link">3D Model</a>
+    <a href="#services" class="text-3xl font-light text-white mobile-link">Services</a>
+    <a href="#about" class="text-3xl font-light text-white mobile-link">About</a>
+    <a href="#process" class="text-3xl font-light text-white mobile-link">Process</a>
+    <a href="#faq" class="text-3xl font-light text-white mobile-link">FAQ</a>
+    <a href="#inquiry-form" class="mt-4 inline-flex items-center gap-2 bg-white text-black px-8 py-4 text-lg font-medium mobile-link">
+      Start a Project
+      <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+    </a>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Hero background video -->
+    <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="Images/posters/energyposter.png">
+      <source src="Videos/energydrinkfinal.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-video-overlay"></div>
+    <!-- Background subtle grid -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 80px 80px;"></div>
+    <!-- Gradient orb -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-[0.04]" style="background: radial-gradient(circle, #fff 0%, transparent 70%);"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div class="hero-title mb-4">
+        <span class="inline-block text-xs font-medium tracking-[0.3em] uppercase text-neutral-500 mb-6">Product Videos & Visualization</span>
+      </div>
+      <h1 class="hero-title text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]">
+        TOP TIER
+      </h1>
+      <h1 class="hero-sub text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] mb-8">
+        <span class="text-transparent" style="-webkit-text-stroke: 2px #fff;">3D</span>
+      </h1>
+
+      <div class="hero-line h-px bg-neutral-700 max-w-xs mx-auto mb-8"></div>
+
+      <p class="hero-sub text-xl md:text-2xl font-light tracking-wide text-neutral-300 mb-4">
+        Make Your Product Look Worth Buying
+      </p>
+
+      <p class="hero-text max-w-2xl mx-auto text-neutral-500 text-sm md:text-base leading-relaxed mb-12">
+        I make product videos and images that help your brand look trusted, premium, and ready to buy from.
+      </p>
+
+      <div class="hero-cta flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#projects" class="inline-flex items-center gap-2 bg-white text-black px-8 py-4 text-sm font-semibold tracking-wide hover:bg-neutral-200 transition-all duration-300 group">
+          View Portfolio
+          <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300"></i>
+        </a>
+        <a href="#inquiry-form" class="inline-flex items-center gap-2 border border-neutral-700 text-white px-8 py-4 text-sm font-medium tracking-wide hover:border-white hover:bg-white hover:text-black transition-all duration-300">
+          Start a Project
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-on-scroll" style="animation: float 3s ease-in-out infinite;">
+      <span class="text-[10px] tracking-[0.3em] uppercase text-neutral-600">Scroll</span>
+      <div class="w-px h-8 bg-neutral-600"></div>
+    </div>
+  </section>
+
+
+  <!-- Interactive 3D Model Section -->
+  <section id="interactive-model" class="relative py-24 md:py-32 bg-neutral-950 border-y border-neutral-900">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-center">
+        <div class="animate-on-scroll max-w-xl">
+          <span class="text-xs font-medium tracking-[0.3em] uppercase text-neutral-500 mb-4 block">Interactive Product View</span>
+          <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">Let Buyers See<br/>Every Angle</h2>
+          <p class="text-neutral-500 text-base leading-relaxed mb-8">
+            Add a product people can move, turn, and view up close. It helps your product feel real before they buy.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#inquiry-form" class="inline-flex items-center justify-center gap-2 bg-white text-black px-8 py-4 text-sm font-semibold tracking-wide hover:bg-neutral-200 transition-all duration-300">
+              Start a Project
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#projects" class="inline-flex items-center justify-center gap-2 border border-neutral-700 text-white px-8 py-4 text-sm font-medium tracking-wide hover:border-white hover:bg-white hover:text-black transition-all duration-300">
+              View Work
+              <i data-lucide="arrow-down" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="animate-on-scroll delay-1">
+          <div class="model-view-card">
+            <div id="modelLoadOverlay" class="model-load-overlay">
+              <div>
+                <p class="text-xs tracking-[0.3em] uppercase text-neutral-500 mb-4">Interactive Model</p>
+                <h3 class="text-2xl md:text-3xl font-semibold mb-4">Load 3D Product View</h3>
+                <p class="text-neutral-500 text-sm leading-relaxed max-w-md mx-auto mb-6">Tap below to load the 3D model. This keeps the page faster on mobile and laptop.</p>
+                <button id="loadModelBtn" type="button" class="inline-flex items-center justify-center gap-2 bg-white text-black px-7 py-3 text-sm font-semibold tracking-wide hover:bg-neutral-200 transition-all duration-300">
+                  Load 3D Model
+                </button>
+              </div>
+            </div>
+            <model-viewer
+              id="productModel"
+              data-src="./Models/energydrinkcan.glb"
+              poster="./Images/posters/interactive-product.jpg"
+              alt="Interactive 3D product model"
+              camera-controls
+              auto-rotate
+              rotation-per-second="18deg"
+              shadow-intensity="1"
+              exposure="1"
+              environment-image="neutral"
+              camera-orbit="0deg 75deg auto"
+              field-of-view="30deg"
+              min-camera-orbit="auto auto 10%"
+              max-camera-orbit="auto auto 250%"
+              bounds="tight"
+              loading="lazy"
+              reveal="auto"
+              ar
+              ar-modes="webxr scene-viewer quick-look"
+            >
+              <div slot="poster" class="w-full h-full flex items-center justify-center text-center px-6">
+                <div>
+                  <p class="text-xs tracking-[0.3em] uppercase text-neutral-500 mb-4">Interactive Model</p>
+                  <p class="text-neutral-400 text-sm">Loading model from <strong class="text-neutral-200">Models/energydrinkcan.glb</strong></p>
+                </div>
+              </div>
+            </model-viewer>
+          </div>
+          <p id="modelStatus" class="mt-4 text-xs text-neutral-600 text-center">
+            Loading 3D model… If it does not appear, check that <span class="text-neutral-400">Models/energydrinkcan.glb</span> exists with the exact same spelling.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Featured Portfolio Section -->
+  <section id="projects" class="relative py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="mb-16 md:mb-20 max-w-3xl">
+        <span class="animate-on-scroll text-xs font-medium tracking-[0.3em] uppercase text-neutral-500 mb-4 block">Portfolio</span>
+        <h2 class="animate-on-scroll delay-1 text-4xl md:text-6xl font-bold tracking-tight mb-6">Work That Makes<br/>Products Look Premium</h2>
+        <p class="animate-on-scroll delay-2 text-neutral-500 max-w-2xl text-base leading-relaxed">
+          Clean product ads and images made to help people notice, trust, and remember your product.
+        </p>
+      </div>
+
+      <!-- Product Animation Videos -->
+      <div class="mb-20 md:mb-28">
+        <div class="animate-on-scroll max-w-3xl mb-10">
+          <span class="text-xs font-medium tracking-[0.3em] uppercase text-neutral-500 mb-3 block">01 — Product videos</span>
+          <h3 class="text-3xl md:text-5xl font-bold tracking-tight mb-5">Videos That Make People Stop</h3>
+          <p class="text-neutral-500 text-sm md:text-base max-w-2xl leading-relaxed">
+            Short product videos made for ads, launches, and social media. They help your product feel exciting before people even click.
+          </p>
+        </div>
+
+        <!-- Vertical videos together -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mb-6 md:mb-8">
+          <div class="animate-on-scroll media-card video-card aspect-[9/16]">
+            <video controls controlsList="nodownload" muted playsinline webkit-playsinline preload="metadata" poster="Images/posters/energyposter.png"><source src="Videos/energydrinkfinal.mp4" type="video/mp4" /></video>
+            <div class="media-meta">
+              <span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block mb-2">Product Ad</span>
+              <h4 class="text-lg md:text-xl font-semibold mb-1">Energy Drink Product Ad</h4>
+              <p class="text-xs text-neutral-400 leading-relaxed max-w-md">A fast drink ad made to feel bold, fresh, and ready for social media.</p>
+            </div>
+          </div>
+
+          <div class="animate-on-scroll delay-1 media-card video-card aspect-[9/16]">
+            <video controls controlsList="nodownload" muted playsinline webkit-playsinline preload="metadata" poster="Images/posters/beautytreeposter.jpg"><source src="Videos/beautyproduct.mp4" type="video/mp4" /><source src="Videos/beautyproduct.mov" type="video/quicktime" /></video>
+            <div class="media-meta">
+              <span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block mb-2">Beauty Video</span>
+              <h4 class="text-lg md:text-xl font-semibold mb-1">Beauty Product Tree Animation</h4>
+              <p class="text-xs text-neutral-400 leading-relaxed max-w-md">A soft beauty video that makes the product feel natural and high-end.</p>
+            </div>
+          </div>
+
+          <div class="animate-on-scroll delay-2 media-card video-card aspect-[9/16]">
+            <video controls controlsList="nodownload" muted playsinline webkit-playsinline preload="metadata" poster="Images/posters/loopingcanposter.jpg"><source src="Videos/CanLooping.MP4" type="video/mp4" /></video>
+            <div class="media-meta">
+              <span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block mb-2">Social Loop</span>
+              <h4 class="text-lg md:text-xl font-semibold mb-1">Energy Drink Cans Loop</h4>
+              <p class="text-xs text-neutral-400 leading-relaxed max-w-md">A clean loop that keeps the cans moving and easy to watch.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Large feature video -->
+        <div class="grid grid-cols-1 gap-5 md:gap-6 mb-6 md:mb-8">
+          <div class="animate-on-scroll media-card video-card aspect-video">
+            <video controls controlsList="nodownload" muted playsinline webkit-playsinline preload="metadata" poster="Images/posters/estteposter.png"><source src="Videos/estteFinalVideo.mp4" type="video/mp4" /></video>
+            <div class="media-meta">
+              <span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block mb-2">Beauty Ad</span>
+              <h4 class="text-xl md:text-3xl font-semibold mb-2">Estée Lauder Serum Full Ad</h4>
+              <p class="text-xs md:text-sm text-neutral-400 leading-relaxed max-w-xl">A beauty ad that makes the serum feel smooth, rich, and trusted.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Supporting animation row -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          <div class="animate-on-scroll media-card video-card aspect-video">
+            <video controls controlsList="nodownload" muted playsinline webkit-playsinline preload="metadata" poster="Images/posters/lancasterposter.png"><source src="Videos/lancasterfianlvideo.mp4" type="video/mp4" /></video>
+            <div class="media-meta">
+              <span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block mb-2">Skincare Film</span>
+              <h4 class="text-lg md:text-xl font-semibold mb-1">Lancaster Cream Product Film</h4>
+              <p class="text-xs text-neutral-400 leading-relaxed max-w-md">A clean cream video that gives the product a calm, premium feel.</p>
+            </div>
+          </div>
+
+          <div class="animate-on-scroll delay-1 media-card video-card aspect-video">
+            <video controls controlsList="nodownload" muted playsinline webkit-playsinline preload="metadata" poster="Images/posters/headphoneposter.png"><source src="Videos/Headphones.mp4" type="video/mp4" /><source src="Videos/Headphones.mov" type="video/quicktime" /></video>
+            <div class="media-meta">
+              <span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block mb-2">Product Breakdown</span>
+              <h4 class="text-lg md:text-xl font-semibold mb-1">Headphone Exploded View</h4>
+              <p class="text-xs text-neutral-400 leading-relaxed max-w-md">A clear product video that shows the design and parts in a simple way.</p>
+            </div>
+          </div>
+
+          <div class="animate-on-scroll delay-2 media-card video-card aspect-video">
+            <video controls controlsList="nodownload" muted playsinline webkit-playsinline preload="metadata" poster="Images/posters/perfumeposter.jpg"><source src="Videos/perfumevideo.mp4" type="video/mp4" /></video>
+            <div class="media-meta">
+              <span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block mb-2">Luxury Motion</span>
+              <h4 class="text-lg md:text-xl font-semibold mb-1">Perfume Rotation</h4>
+              <p class="text-xs text-neutral-400 leading-relaxed max-w-md">A simple product spin that gives the bottle a clean luxury look.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Still Render Gallery -->
+      <div>
+        <div class="animate-on-scroll max-w-3xl mb-10">
+          <span class="text-xs font-medium tracking-[0.3em] uppercase text-neutral-500 mb-3 block">02 — Product images</span>
+          <h3 class="text-3xl md:text-5xl font-bold tracking-tight mb-5">Images That Make Products Look Worth Buying</h3>
+          <p class="text-neutral-500 text-sm md:text-base max-w-2xl leading-relaxed">
+            Clean images for websites, ads, and posts. They help people see the product, trust it, and remember it.
+          </p>
+        </div>
+
+        <!-- Featured image row: no blank spaces -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 mb-5 md:mb-6">
+          <div class="animate-on-scroll media-card aspect-[4/3]">
+            <img src="Images/esttelauder.jpg" alt="Estée Lauder serum product image" loading="lazy" />
+            <div class="media-meta">
+              <span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Beauty</span>
+            </div>
+          </div>
+          <div class="animate-on-scroll delay-1 media-card aspect-[4/3]">
+            <img src="Images/lancaster Final.png" alt="Lancaster cream product image" loading="lazy" />
+            <div class="media-meta">
+              <span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Skincare</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main image grid: clean rows, no holes -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          <div class="animate-on-scroll media-card aspect-[4/3]">
+            <img src="Images/JD1.png" alt="Jack Daniel product image 1" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Beverage</span></div>
+          </div>
+          <div class="animate-on-scroll delay-1 media-card aspect-[4/3]">
+            <img src="Images/JD2.png" alt="Jack Daniel product image 2" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Beverage</span></div>
+          </div>
+          <div class="animate-on-scroll delay-2 media-card aspect-[4/3]">
+            <img src="Images/JD3.png" alt="Jack Daniel product image 3" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Beverage</span></div>
+          </div>
+          <div class="animate-on-scroll media-card aspect-[4/3]">
+            <img src="Images/vit4.png" alt="Multivitamin product image 1" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Wellness</span></div>
+          </div>
+          <div class="animate-on-scroll delay-1 media-card aspect-[4/3]">
+            <img src="Images/vit2.png" alt="Multivitamin product image 2" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Wellness</span></div>
+          </div>
+          <div class="animate-on-scroll delay-2 media-card aspect-[4/3]">
+            <img src="Images/vit3.png" alt="Multivitamin product image 3" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Wellness</span></div>
+          </div>
+          <div class="animate-on-scroll media-card aspect-[4/3]">
+            <img src="Images/parfum1.png" alt="Perfume product image 1" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Luxury</span></div>
+          </div>
+          <div class="animate-on-scroll delay-1 media-card aspect-[4/3]">
+            <img src="Images/parfum2.png" alt="Perfume product image 2" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Luxury</span></div>
+          </div>
+          <div class="animate-on-scroll delay-2 media-card aspect-[4/3]">
+            <img src="Images/parfum3.png" alt="Perfume product image 3" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Luxury</span></div>
+          </div>
+          <div class="animate-on-scroll media-card aspect-[4/3]">
+            <img src="Images/parfum4.png" alt="Perfume product image 4" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Luxury</span></div>
+          </div>
+          <div class="animate-on-scroll delay-1 media-card aspect-[4/3]">
+            <img src="Images/tt3dcreme.png" alt="TT3D creme product mockup" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Skincare</span></div>
+          </div>
+          <div class="animate-on-scroll delay-2 media-card aspect-[4/3]">
+            <img src="Images/ImageHeadphone.png" alt="Headphone product image" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Tech</span></div>
+          </div>
+          <div class="animate-on-scroll media-card aspect-[4/3]">
+            <img src="Images/zippo.png" alt="Zippo lighter product image" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Lifestyle</span></div>
+          </div>
+          <div class="animate-on-scroll delay-1 media-card aspect-[4/3]">
+            <img src="Images/protein.png" alt="Protein product image" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Fitness</span></div>
+          </div>
+          <div class="animate-on-scroll delay-2 media-card aspect-[4/3]">
+            <img src="Images/Altahar.jpg" alt="Altahar multigrain bar product image" loading="lazy" />
+            <div class="media-meta"><span class="text-[10px] tracking-[0.3em] uppercase text-neutral-400 block">Food</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Divider -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="h-px bg-neutral-800"></div>
+  </div>
+
+  <!-- About Section -->
+  <section id="about" class="relative py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+        <!-- Left -->
+        <div>
+          <span class="animate-on-scroll text-xs font-medium tracking-[0.3em] uppercase text-neutral-500 mb-4 block">About</span>
+          <h2 class="animate-on-scroll delay-1 text-4xl md:text-6xl font-bold tracking-tight mb-8">Why Work<br/>With Me</h2>
+          <p class="animate-on-scroll delay-2 text-neutral-400 text-base leading-relaxed mb-6">
+            I help products look more premium, clear, and ready to sell.
+          </p>
+          <p class="animate-on-scroll delay-3 text-neutral-500 text-base leading-relaxed">
+            The work is made to catch attention fast, build trust, and show the product in its best light.
+          </p>
+        </div>
+
+        <!-- Right - Highlights -->
+        <div class="flex flex-col justify-center">
+          <div class="space-y-6">
+            <div class="animate-on-scroll highlight-item text-lg font-light text-neutral-300">
+              Premium product images
+            </div>
+            <div class="h-px bg-neutral-800"></div>
+            <div class="animate-on-scroll delay-1 highlight-item text-lg font-light text-neutral-300">
+              Short product videos for ads
+            </div>
+            <div class="h-px bg-neutral-800"></div>
+            <div class="animate-on-scroll delay-2 highlight-item text-lg font-light text-neutral-300">
+              Clean visuals that build trust
+            </div>
+            <div class="h-px bg-neutral-800"></div>
+            <div class="animate-on-scroll delay-3 highlight-item text-lg font-light text-neutral-300">
+              Easy communication
+            </div>
+            <div class="h-px bg-neutral-800"></div>
+            <div class="animate-on-scroll delay-4 highlight-item text-lg font-light text-neutral-300">
+              Files ready for ads and social media
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="h-px bg-neutral-800"></div>
+  </div>
+
+  <!-- Services Section -->
+  <section id="services" class="relative py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="mb-16 md:mb-24">
+        <span class="animate-on-scroll text-xs font-medium tracking-[0.3em] uppercase text-neutral-500 mb-4 block">Services</span>
+        <h2 class="animate-on-scroll delay-1 text-4xl md:text-6xl font-bold tracking-tight">How I Can Help</h2>
+      </div>
+
+      <!-- Services List -->
+      <div class="space-y-0">
+        <!-- Service 1 -->
+        <div class="animate-on-scroll service-card border-t border-neutral-800 py-10 md:py-14 group cursor-pointer">
+          <div class="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
+            <span class="service-number text-neutral-600 text-sm font-medium tracking-wider mt-1 md:w-20 shrink-0">01</span>
+            <div class="flex-1">
+              <h3 class="text-xl md:text-3xl font-semibold tracking-tight mb-3 group-hover:translate-x-2 transition-transform duration-500">Product Images</h3>
+              <p class="text-neutral-500 text-sm md:text-base leading-relaxed max-w-xl">Clean product images for websites, ads, online stores, and social media.</p>
+            </div>
+            <div class="hidden md:flex items-center justify-center w-12 h-12 shrink-0">
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-neutral-600 group-hover:text-white transition-colors duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="animate-on-scroll delay-1 service-card border-t border-neutral-800 py-10 md:py-14 group cursor-pointer">
+          <div class="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
+            <span class="service-number text-neutral-600 text-sm font-medium tracking-wider mt-1 md:w-20 shrink-0">02</span>
+            <div class="flex-1">
+              <h3 class="text-xl md:text-3xl font-semibold tracking-tight mb-3 group-hover:translate-x-2 transition-transform duration-500">Product Videos</h3>
+              <p class="text-neutral-500 text-sm md:text-base leading-relaxed max-w-xl">Short videos that make your product easy to notice and remember.</p>
+            </div>
+            <div class="hidden md:flex items-center justify-center w-12 h-12 shrink-0">
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-neutral-600 group-hover:text-white transition-colors duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="animate-on-scroll delay-2 service-card border-t border-neutral-800 py-10 md:py-14 group cursor-pointer">
+          <div class="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
+            <span class="service-number text-neutral-600 text-sm font-medium tracking-wider mt-1 md:w-20 shrink-0">03</span>
+            <div class="flex-1">
+              <h3 class="text-xl md:text-3xl font-semibold tracking-tight mb-3 group-hover:translate-x-2 transition-transform duration-500">Launch Videos</h3>
+              <p class="text-neutral-500 text-sm md:text-base leading-relaxed max-w-xl">Clean launch videos made to build hype before people buy.</p>
+            </div>
+            <div class="hidden md:flex items-center justify-center w-12 h-12 shrink-0">
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-neutral-600 group-hover:text-white transition-colors duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="animate-on-scroll delay-3 service-card border-t border-neutral-800 py-10 md:py-14 group cursor-pointer">
+          <div class="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
+            <span class="service-number text-neutral-600 text-sm font-medium tracking-wider mt-1 md:w-20 shrink-0">04</span>
+            <div class="flex-1">
+              <h3 class="text-xl md:text-3xl font-semibold tracking-tight mb-3 group-hover:translate-x-2 transition-transform duration-500">Social Media Ads</h3>
+              <p class="text-neutral-500 text-sm md:text-base leading-relaxed max-w-xl">Short videos made for Instagram, YouTube, and paid ads.</p>
+            </div>
+            <div class="hidden md:flex items-center justify-center w-12 h-12 shrink-0">
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-neutral-600 group-hover:text-white transition-colors duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="animate-on-scroll delay-4 service-card border-t border-b border-neutral-800 py-10 md:py-14 group cursor-pointer">
+          <div class="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
+            <span class="service-number text-neutral-600 text-sm font-medium tracking-wider mt-1 md:w-20 shrink-0">05</span>
+            <div class="flex-1">
+              <h3 class="text-xl md:text-3xl font-semibold tracking-tight mb-3 group-hover:translate-x-2 transition-transform duration-500">Custom Product Scenes</h3>
+              <p class="text-neutral-500 text-sm md:text-base leading-relaxed max-w-xl">Custom scenes that make your product feel more valuable and easier to trust.</p>
+            </div>
+            <div class="hidden md:flex items-center justify-center w-12 h-12 shrink-0">
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-neutral-600 group-hover:text-white transition-colors duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="relative py-24 md:py-32 bg-neutral-950">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+        <!-- Left -->
+        <div>
+          <span class="animate-on-scroll text-xs font-medium tracking-[0.3em] uppercase text-neutral-500 mb-4 block">Process</span>
+          <h2 class="animate-on-scroll delay-1 text-4xl md:text-6xl font-bold tracking-tight mb-6">How We<br/>Work Together</h2>
+          <p class="animate-on-scroll delay-2 text-neutral-500 text-base leading-relaxed max-w-md">
+            A simple process made to keep the project clear from start to finish.
+          </p>
+        </div>
+
+        <!-- Right - Steps -->
+        <div class="space-y-8">
+          <!-- Step 1 -->
+          <div class="animate-on-scroll process-step flex gap-6">
+            <div class="shrink-0 w-12 h-12 flex items-center justify-center border border-neutral-700 rounded-full">
+              <span class="text-sm font-semibold">01</span>
+            </div>
+            <div class="pt-2">
+              <h3 class="text-lg font-semibold mb-2">Send Product Details</h3>
+              <p class="text-neutral-500 text-sm leading-relaxed">Send product photos, brand details, and what you want to show.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="animate-on-scroll delay-1 process-step flex gap-6">
+            <div class="shrink-0 w-12 h-12 flex items-center justify-center border border-neutral-700 rounded-full">
+              <span class="text-sm font-semibold">02</span>
+            </div>
+            <div class="pt-2">
+              <h3 class="text-lg font-semibold mb-2">Plan The Look</h3>
+              <p class="text-neutral-500 text-sm leading-relaxed">We choose the look, message, and key shots before the work starts.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="animate-on-scroll delay-2 process-step flex gap-6">
+            <div class="shrink-0 w-12 h-12 flex items-center justify-center border border-neutral-700 rounded-full">
+              <span class="text-sm font-semibold">03</span>
+            </div>
+            <div class="pt-2">
+              <h3 class="text-lg font-semibold mb-2">Create The Visuals</h3>
+              <p class="text-neutral-500 text-sm leading-relaxed">I make the images or videos and keep the focus on what helps the product sell.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="animate-on-scroll delay-3 process-step flex gap-6">
+            <div class="shrink-0 w-12 h-12 flex items-center justify-center border border-neutral-700 rounded-full">
+              <span class="text-sm font-semibold">04</span>
+            </div>
+            <div class="pt-2">
+              <h3 class="text-lg font-semibold mb-2">Get Ready-To-Use Files</h3>
+              <p class="text-neutral-500 text-sm leading-relaxed">You get final files ready for your website, ads, and social media.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Capability Section -->
+  <section id="capabilities" class="relative py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-16 lg:gap-24 items-start">
+        <div>
+          <span class="animate-on-scroll text-xs font-medium tracking-[0.3em] uppercase text-neutral-500 mb-4 block">Why TopTier3D</span>
+          <h2 class="animate-on-scroll delay-1 text-4xl md:text-6xl font-bold tracking-tight mb-6">Built To Help<br/>Products Sell</h2>
+          <p class="animate-on-scroll delay-2 text-neutral-500 text-base leading-relaxed max-w-md">
+            People decide fast. Strong images and videos help your product feel trusted, premium, and worth buying.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
+          <div class="animate-on-scroll capability-card p-6 md:p-8"><span class="text-neutral-600 text-sm font-medium">01</span><h3 class="text-xl font-semibold mt-6 mb-3">Stop The Scroll</h3><p class="text-neutral-500 text-sm leading-relaxed">Give people a reason to pause when they see your product.</p></div>
+          <div class="animate-on-scroll delay-1 capability-card p-6 md:p-8"><span class="text-neutral-600 text-sm font-medium">02</span><h3 class="text-xl font-semibold mt-6 mb-3">Make It Feel Premium</h3><p class="text-neutral-500 text-sm leading-relaxed">Help your product look like it belongs to a serious brand.</p></div>
+          <div class="animate-on-scroll delay-2 capability-card p-6 md:p-8"><span class="text-neutral-600 text-sm font-medium">03</span><h3 class="text-xl font-semibold mt-6 mb-3">Show It Clearly</h3><p class="text-neutral-500 text-sm leading-relaxed">Make the product easy to understand in a few seconds.</p></div>
+          <div class="animate-on-scroll delay-3 capability-card p-6 md:p-8"><span class="text-neutral-600 text-sm font-medium">04</span><h3 class="text-xl font-semibold mt-6 mb-3">Ready For Ads</h3><p class="text-neutral-500 text-sm leading-relaxed">Use the final files on Instagram, YouTube, websites, and paid ads.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- FAQ Section -->
+  <section id="faq" class="relative py-24 md:py-32 border-t border-neutral-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-14 lg:gap-20 items-start">
+        <div class="animate-on-scroll lg:sticky lg:top-28">
+          <span class="text-xs font-medium tracking-[0.3em] uppercase text-neutral-500 mb-4 block">FAQ</span>
+          <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">Questions Before<br/>We Start?</h2>
+          <p class="text-neutral-500 text-sm md:text-base leading-relaxed max-w-md">
+            Here are the main things most brands ask before starting a project.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <details class="animate-on-scroll faq-item p-6 md:p-7" open>
+            <summary class="flex items-start justify-between gap-6 cursor-pointer">
+              <h3 class="text-lg md:text-xl font-semibold tracking-tight">How much does a project cost?</h3>
+              <span class="faq-plus text-2xl leading-none text-neutral-400">+</span>
+            </summary>
+            <p class="text-neutral-500 text-sm md:text-base leading-relaxed mt-5">
+              Projects usually range from <strong class="text-neutral-200 font-medium">$100 to $10,000</strong>, depending on what you need. A few product images cost less. A full product video, ad, or large campaign costs more. Once I understand your product, style, and deadline, I’ll send a clear quote before we start.
+            </p>
+          </details>
+
+          <details class="animate-on-scroll delay-1 faq-item p-6 md:p-7">
+            <summary class="flex items-start justify-between gap-6 cursor-pointer">
+              <h3 class="text-lg md:text-xl font-semibold tracking-tight">How long does delivery take?</h3>
+              <span class="faq-plus text-2xl leading-none text-neutral-400">+</span>
+            </summary>
+            <p class="text-neutral-500 text-sm md:text-base leading-relaxed mt-5">
+              Delivery can take anywhere from <strong class="text-neutral-200 font-medium">24 hours to 20 days</strong>, depending on the size of the project. Simple product images can be faster. Bigger videos need more time for planning, motion, polish, and final export. I’ll always share a clear timeline before the project begins.
+            </p>
+          </details>
+
+          <details class="animate-on-scroll delay-2 faq-item p-6 md:p-7">
+            <summary class="flex items-start justify-between gap-6 cursor-pointer">
+              <h3 class="text-lg md:text-xl font-semibold tracking-tight">How many revisions are included?</h3>
+              <span class="faq-plus text-2xl leading-none text-neutral-400">+</span>
+            </summary>
+            <p class="text-neutral-500 text-sm md:text-base leading-relaxed mt-5">
+              Each project includes <strong class="text-neutral-200 font-medium">1 revision</strong>. This helps us fine-tune the final work after the first delivery. Extra revisions are charged hourly because 3D changes often take time to adjust, preview, render, and polish.
+            </p>
+          </details>
+
+          <details class="animate-on-scroll delay-3 faq-item p-6 md:p-7">
+            <summary class="flex items-start justify-between gap-6 cursor-pointer">
+              <h3 class="text-lg md:text-xl font-semibold tracking-tight">What counts as a revision?</h3>
+              <span class="faq-plus text-2xl leading-none text-neutral-400">+</span>
+            </summary>
+            <p class="text-neutral-500 text-sm md:text-base leading-relaxed mt-5">
+              A revision means small changes to improve the work, like adjusting colors, text, timing, product position, or small visual details. A full change in idea, scene, product style, or video direction may need a new quote.
+            </p>
+          </details>
+
+          <details class="animate-on-scroll faq-item p-6 md:p-7">
+            <summary class="flex items-start justify-between gap-6 cursor-pointer">
+              <h3 class="text-lg md:text-xl font-semibold tracking-tight">Why are extra revisions charged hourly?</h3>
+              <span class="faq-plus text-2xl leading-none text-neutral-400">+</span>
+            </summary>
+            <p class="text-neutral-500 text-sm md:text-base leading-relaxed mt-5">
+              3D work is not like editing a simple image. Even small changes can need setup, testing, rendering, and final polish. Charging hourly for extra revisions keeps the process fair and helps protect the project timeline.
+            </p>
+          </details>
+
+          <details class="animate-on-scroll delay-1 faq-item p-6 md:p-7">
+            <summary class="flex items-start justify-between gap-6 cursor-pointer">
+              <h3 class="text-lg md:text-xl font-semibold tracking-tight">Do you work with long-term clients?</h3>
+              <span class="faq-plus text-2xl leading-none text-neutral-400">+</span>
+            </summary>
+            <p class="text-neutral-500 text-sm md:text-base leading-relaxed mt-5">
+              Yes. I’m open to one-time projects and long-term work for brands that need regular product images, videos, and ad creatives.
+            </p>
+          </details>
+
+          <details class="animate-on-scroll delay-2 faq-item p-6 md:p-7">
+            <summary class="flex items-start justify-between gap-6 cursor-pointer">
+              <h3 class="text-lg md:text-xl font-semibold tracking-tight">Can you make videos for Instagram and ads?</h3>
+              <span class="faq-plus text-2xl leading-none text-neutral-400">+</span>
+            </summary>
+            <p class="text-neutral-500 text-sm md:text-base leading-relaxed mt-5">
+              Yes. I can create short product videos for Instagram Reels, YouTube Shorts, website banners, and paid ads.
+            </p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA Section -->
+  <section id="cta" class="relative py-24 md:py-40 overflow-hidden bg-neutral-950">
+    <!-- Background effect -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.04]" style="background: radial-gradient(circle, #fff 0%, transparent 70%);"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <span class="animate-on-scroll text-xs font-medium tracking-[0.3em] uppercase text-neutral-500 mb-6 block">Let's Work Together</span>
+      <h2 class="animate-on-scroll delay-1 text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6">
+        Ready To Make Your<br/>Product Look Trusted?
+      </h2>
+      <p class="animate-on-scroll delay-2 text-neutral-500 text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10">
+        Tell me what you sell and what you need. I’ll help turn it into clean visuals for ads, launches, and social media.
+      </p>
+
+      <div id="inquiry-form" class="animate-on-scroll delay-3 max-w-2xl mx-auto mt-12">
+        <form
+          id="contactForm"
+          action="https://formspree.io/f/mdayenoa"
+          method="POST"
+          class="grid grid-cols-1 md:grid-cols-2 gap-4"
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            class="bg-neutral-900 border border-neutral-700 px-5 py-4 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-white"
+            required
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            class="bg-neutral-900 border border-neutral-700 px-5 py-4 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-white"
+            required
+          />
+
+          <input
+            type="text"
+            name="company"
+            placeholder="Brand / Company"
+            class="md:col-span-2 bg-neutral-900 border border-neutral-700 px-5 py-4 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-white"
+          />
+
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Tell me what you sell, your deadline, and what you need..."
+            class="md:col-span-2 bg-neutral-900 border border-neutral-700 px-5 py-4 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:border-white resize-none"
+            required
+          ></textarea>
+
+          <button
+            type="submit"
+            class="md:col-span-2 bg-white text-black px-8 py-4 text-sm font-semibold hover:bg-neutral-200 transition-all duration-300"
+          >
+            Send Inquiry
+          </button>
+
+          <p id="thankYouMessage" class="md:col-span-2 hidden text-green-400 text-sm text-center mt-2">
+            Thank you! Your inquiry has been sent successfully.
+          </p>
+        </form>
+      </div>
+
+      <p class="animate-on-scroll delay-4 text-neutral-600 text-sm mt-8">
+        Available for freelance projects, brand collaborations, and long-term partnerships.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="border-t border-neutral-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <a href="#hero" class="text-white font-bold text-xl tracking-tight mb-4 block">
+            TOP<span class="font-light">TIER</span>3D
+          </a>
+          <p class="text-neutral-500 text-sm leading-relaxed max-w-sm">
+            Product videos and images that help brands look premium online.
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div>
+          <h4 class="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-4">Navigation</h4>
+          <div class="space-y-3">
+            <a href="#projects" class="block text-sm text-neutral-500 hover:text-white transition-colors duration-300">Portfolio</a>
+            <a href="#interactive-model" class="block text-sm text-neutral-500 hover:text-white transition-colors duration-300">3D Model</a>
+            <a href="#services" class="block text-sm text-neutral-500 hover:text-white transition-colors duration-300">Services</a>
+            <a href="#about" class="block text-sm text-neutral-500 hover:text-white transition-colors duration-300">About</a>
+            <a href="#faq" class="block text-sm text-neutral-500 hover:text-white transition-colors duration-300">FAQ</a>
+            <a href="#cta" class="block text-sm text-neutral-500 hover:text-white transition-colors duration-300">Contact</a>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div>
+          <h4 class="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-4">Social</h4>
+          <div class="space-y-3">
+            <a href="https://www.instagram.com/toptier3d?igsh=aXhmMXhuNjlqczFr&utm_source=qr" class="flex items-center gap-2 text-sm text-neutral-500 hover:text-white transition-colors duration-300">
+              <i data-lucide="instagram" class="w-4 h-4"></i> Instagram
+            </a>
+            <a href="https://wa.me/919319277390" class="flex items-center gap-2 text-sm text-neutral-500 hover:text-white transition-colors duration-300">
+              <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp 
+            </a>
+            <a href="https://linkedin.com/in/chirag-gahlot-0b3b13209" class="flex items-center gap-2 text-sm text-neutral-500 hover:text-white transition-colors duration-300">
+              <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="mt-16 pt-8 border-t border-neutral-800 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-neutral-600">© 2026 Top Tier 3D. All rights reserved.</p>
+        <a href="#hero" class="flex items-center gap-2 text-xs text-neutral-600 hover:text-white transition-colors duration-300 group">
+          Back to top
+          <i data-lucide="arrow-up" class="w-3 h-3 group-hover:-translate-y-1 transition-transform duration-300"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Scroll Animation Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Navbar background on scroll
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll > 80) {
+        navbar.classList.add('nav-blur', 'bg-black/80', 'border-b', 'border-neutral-800/50');
+      } else {
+        navbar.classList.remove('nav-blur', 'bg-black/80', 'border-b', 'border-neutral-800/50');
+      }
+
+      lastScroll = currentScroll;
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = menuToggle.querySelector('.menu-icon');
+    const closeIcon = menuToggle.querySelector('.close-icon');
+    let menuOpen = false;
+
+    menuToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+
+      if (menuOpen) {
+        mobileMenu.classList.add('open');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      } else {
+        mobileMenu.classList.remove('open');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.classList.remove('open');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offsetTop = target.offsetTop - 80;
+          window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Counter animation for process steps (optional subtle effect)
+    const processSteps = document.querySelectorAll('.process-step');
+    const stepObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const circle = entry.target.querySelector('.w-12');
+          if (circle) {
+            circle.style.borderColor = '#fff';
+            circle.style.transition = 'border-color 0.5s ease';
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    processSteps.forEach(step => stepObserver.observe(step));
+  </script>
+
+  <script>
+    // Load the 3D model only after the user clicks the button
+    const loadModelBtn = document.getElementById('loadModelBtn');
+    const productModel = document.getElementById('productModel');
+    const modelLoadOverlay = document.getElementById('modelLoadOverlay');
+    const modelStatus = document.getElementById('modelStatus');
+
+    function loadModelViewerScript() {
+      return new Promise((resolve, reject) => {
+        if (customElements.get('model-viewer')) return resolve();
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.src = 'https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js';
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    }
+
+    if (loadModelBtn && productModel) {
+      loadModelBtn.addEventListener('click', async () => {
+        try {
+          loadModelBtn.textContent = 'Loading...';
+          await loadModelViewerScript();
+          const src = productModel.getAttribute('data-src');
+          if (src) productModel.setAttribute('src', src);
+          if (modelLoadOverlay) modelLoadOverlay.classList.add('hidden');
+          if (modelStatus) modelStatus.textContent = 'Drag to rotate. Scroll or pinch to zoom.';
+        } catch (e) {
+          if (modelStatus) modelStatus.textContent = 'The 3D model could not load. Please check the model file path.';
+          loadModelBtn.textContent = 'Try Again';
+        }
+      });
+    }
+  </script>
+
+
+  <script>
+    // Desktop only: play portfolio videos on hover, keep mobile tap-to-play
+    const desktopCanHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (desktopCanHover) {
+      document.querySelectorAll('.video-card video').forEach((video) => {
+        video.muted = true;
+        video.playsInline = true;
+
+        const card = video.closest('.video-card');
+        if (!card) return;
+
+        card.addEventListener('mouseenter', () => {
+          video.play().catch(() => {
+            // Browser may block playback until the first user action; controls still work.
+          });
+        });
+
+        card.addEventListener('mouseleave', () => {
+          if (!video.paused) {
+            video.pause();
+          }
+        });
+      });
+    }
+  </script>
+
+  <script>
+  const contactForm = document.getElementById('contactForm');
+  const thankYouMessage = document.getElementById('thankYouMessage');
+
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(contactForm);
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        contactForm.reset();
+        thankYouMessage.classList.remove('hidden');
+
+        setTimeout(() => {
+          thankYouMessage.classList.add('hidden');
+        }, 5000);
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      alert('Unable to send inquiry. Please try again later.');
+    }
+  });
+</script>
+</body>
+</html>
